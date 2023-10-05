@@ -1,12 +1,6 @@
 Algoritmo Productos_Descuento
 	
-	//Declarar variables
-	Definir nombre,domicilio, continuar, salir Como cadena 
-	Definir telefono, codigo_postal Como Entero
-	
-	Repetir
-		
-	
+	Repetir	
 	//Pedir datos de entrada
 	Escribir "-----------------Datos del cliente----------------"
 	
