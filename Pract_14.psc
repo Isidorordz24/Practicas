@@ -1,41 +1,32 @@
 Algoritmo Pract_14
 	
-	Escribir "INGRESE LA CANTIDAD QUE DESEA INGRESAR"
-	Leer num
 	
-	Dimension num1[num]
+	Escribir "TAMAÑO"
+	Leer t
 	
-	Para i<-1 Hasta num Con Paso 1 Hacer
-		
-		Escribir "Ingrese numero"
-		Leer num1[i]
+	Dimension a[t]
+	mayor1<-0
+	mayor2<-2
+	
+	Escribir "Ingrese numero"
+	
+	Para i<-1 Hasta t Con Paso 1 Hacer
+		Leer a[i]
 	Fin Para
 	
-	Para j<-1 Hasta num Con Paso 1 Hacer
+	Para j<-1 Hasta t Con Paso 1 Hacer
+			si a[j] > mayor1 Entonces
+				mayor1<- a[j]
+			FinSi
+		Fin Para
 		
-		si(j<num)Entonces
-			f<-j
-		FinSi
-		
-		si(num1[j] > num1[f])Entonces
-			m<-num1[j]
-		FinSi
-		num1[j]<-0
-		
-	Fin Para
+		Para n<-1 Hasta t Con Paso 1 Hacer
+			si a[n] < mayor1 Entonces
+				mayor2<- a[n]
+			FinSi
+		Fin Para
 	
-	Para z<-1 Hasta num Con Paso 1 Hacer
-		
-		si(z<num)Entonces
-			v<-z
-		FinSi
-		
-		si(num1[z] > num1[v])Entonces
-			vc<-num1[z]
-		FinSi
-		num1[z]<-0
-	Fin Para
+	Escribir "el mayor es: "  mayor1
+	Escribir "El segundo mayor es: " mayor2
 	
-	Escribir "Mayor: " m
-	Escribir "Segundo: " vc
 FinAlgoritmo
