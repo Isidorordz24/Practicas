@@ -14,9 +14,13 @@ Algoritmo Tienda
 		Leer pruductos[i]
 	//suma de los productos
 		suma1=suma1+pruductos[i]
-	//Mostrar la suma
-		Escribir "La suma de los productos es de: " suma1
+	
+		
 	Fin Para
+	
+	//Mostrar la suma
+	Escribir "La suma de los productos es de: " suma1
+	
 	//Mostrar los datos ingresados
 	Para j<-1 Hasta pro Con Paso 1 Hacer
 	Escribir "Productos ingresados: " pruductos[j]
