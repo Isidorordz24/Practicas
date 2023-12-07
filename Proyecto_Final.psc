@@ -1,8 +1,7 @@
 Algoritmo sin_titulo
 	
 	// <--- definir las variables -----> 
-	Definir op, contestudiantes Como entero 
-	Definir registroestudiantes Como Caracter
+
 	
 	// <--- definir las matrices -----> 
 	Dimension estudiante[100,5]
@@ -20,11 +19,10 @@ Algoritmo sin_titulo
 		Escribir "2 <----> Registro estudiantes"
 		Escribir "3 <----> Agregar a la carrera (pago normal)"
 		Escribir "4 <----> Agregar a la carrera (pago por beca)"
-		Escribir "5 <----> Regitro de datos"
-		Escribir "6 <----> Maestros"
-		Escribir "7 <----> Carreras"
-		Escribir "8 <----> Grupos"
-		Escribir "9 <----> Salir"
+		Escribir "5 <----> Maestros"
+		Escribir "6 <----> Carreras"
+		Escribir "7 <----> Grupos"
+		Escribir "8 <----> Salir"
 		Leer op
 		
 		Segun op Hacer
@@ -47,7 +45,8 @@ Algoritmo sin_titulo
 						
 						Escribir "Ingrese nombre"
 						Leer estudiante1
-												
+						
+						Escribir "SELECCIONE EL NUMERO RESPECTO A LA CARRERA QUE DESEA"
 						Para i <- 1 Hasta cont_carrera Con Paso 1 Hacer
 							
 							Escribir i " <--- Nomre de la carrera: " carreras[i,1]
@@ -56,21 +55,46 @@ Algoritmo sin_titulo
 						
 						Leer carrera1
 						
+						si (carrera1 > cont_carrera) o (carrera1 < 0 )  Entonces
+							
+							Repetir
+								
+								Leer carrera1
+								
+							Hasta Que carrera1 > 0 y carrera1 <= cont_carrera
+							
+						FinSi
+						
+						cont_carrera_text=ConvertirATexto(carrera1)
+						
+													
 						Para i <- 1 Hasta cont_grupo Con Paso 1 Hacer
 							
-							Escribir  i " <----- Grupo disponibles: ", grupo[i, 1] " Con el maestro: " maestro[i,1]
+							Escribir  i " <----- Grupo disponibles: ", grupo[i, 2] " Con el maestro: " maestro[i,1]
 							
 						FinPara
 						
-						Escribir "Grupo"
 						Leer grupo1
-					
+						
+						si (grupo1 > cont_grupo) o (grupo1 < 0 )  Entonces
+							
+							Repetir
+								
+								Leer grupo1
+								
+							Hasta Que grupo1 > 0 y grupo1 <= cont_grupo
+							
+						FinSi
+						
+						cont_grupo_text=ConvertirATexto(carrera1)
+						
+						
 						Escribir "Pago"
 						Leer pago1
 						
 						estudiante[contestudiantes2,1] <- estudiante1
-						estudiante[contestudiantes2,2] <- carrera1
-						estudiante[contestudiantes2,3] <- grupo1
+						estudiante[contestudiantes2,2] <- cont_carrera_text
+						estudiante[contestudiantes2,3] <- cont_grupo_text
 						estudiante[contestudiantes2,4] <- pago1
 						
 						Escribir "Metodo por pago normal guardado exitosamente"
@@ -85,9 +109,8 @@ Algoritmo sin_titulo
 						
 						Escribir "Ingrese nombre"
 						Leer estudiante3
-						
-						Escribir "Carrera disponibles"
-						
+												
+						Escribir "SELECCIONE EL NUMERO RESPECTO A LA CARRERA QUE DESEA"
 						Para i <- 1 Hasta cont_carrera Con Paso 1 Hacer
 							
 							Escribir i " <--- Nomre de la carrera: " carreras[i,1]
@@ -96,22 +119,47 @@ Algoritmo sin_titulo
 						
 						Leer carrera3
 						
+						si (carrera3 > cont_carrera ) o (carrera3 < 0 )  Entonces
+							
+							Repetir
+								
+								Leer carrera3
+								
+							Hasta Que carrera3 > 0 y carrera3 <= cont_carrera
+							
+						FinSi
+						
+						maestro_carrera_text=ConvertirATexto(carrera3)
+						
+						
+						
 						Para i <- 1 Hasta cont_grupo Con Paso 1 Hacer
 							
-							Escribir  i " <----- Grupo disponibles: ", grupo[i, 1] " con el maestro: " maestro[i,1]
+							Escribir  i " <----- Grupo disponibles: ", grupo[i, 2] " con el maestro: " maestro[i,1]
 							
 						FinPara
 						
-						Escribir "Grupo"
-						Leer grupo1
+						Leer grupo3
+						
+						si (grupo3 > cont_grupo) o (grupo3 < 0 )  Entonces
+							
+							Repetir
+								
+								Leer grupo3
+								
+							Hasta Que grupo3 > 0 y grupo3 <= cont_grupo
+							
+						FinSi
+						
+						grupo_carrera_text=ConvertirATexto(grupo3)
 						
 						Escribir "Nombre de la beca"
-						Leer beca1
+						Leer beca3
 						
 						estudiante2[contestudiantes,1] <- estudiante3
-						estudiante2[contestudiantes,2] <- carrera3
-						estudiante2[contestudiantes,3] <- grupo3
-						estudiante2[contestudiantes,4] <- beca
+						estudiante2[contestudiantes,2] <- maestro_carrera_text
+						estudiante2[contestudiantes,3] <- grupo_carrera_text
+						estudiante2[contestudiantes,4] <- beca3
 						
 						Escribir "Metodo de pago por beca guardado exitosamente"
 						
@@ -221,41 +269,7 @@ Algoritmo sin_titulo
 					
 				FinSi
 				
-			Caso 5: 
-				
-				si cont > 0  Entonces
-					
-					Escribir "Registro en el apartado de pago normal"
-					
-					Para i <- 1 Hasta cont Con Paso 1 Hacer
-						
-						Escribir  " Estudiante numero: ", seleccion[i, 1] 
-					
-					FinPara
-					
-				SiNo
-					
-					Escribir "No hay alumnos registrados en pago normal"
-					
-				FinSi
-				
-				si cont5 > 0 Entonces
-					
-					Escribir "Registro en el apartado de pago por beca"
-					
-					Para i <- 1 Hasta cont5 Con Paso 1 Hacer
-						
-						Escribir  " Estudiante numero: " seleccionf[i,1]
-						
-					FinPara
-					
-				SiNo
-					
-					Escribir "No hay alumnos registrados en pago por beca"
-					
-				FinSi
-				
-			Caso 6:
+			Caso 5:
 				
 				Escribir "Nombre del maestro"
 				Leer nombre_maestro
@@ -263,9 +277,9 @@ Algoritmo sin_titulo
 				cont_maestros= cont_maestros + 1
 				maestro[cont_maestros,1] <- nombre_maestro
 				
-			Caso 7:
+			Caso 6:
 				
-				si  cont_maestros > 0  Entonces
+				si  cont_maestros > 0 y cont_grupo > 0 Entonces
 					
 					Escribir "Nombre de la carrera"
 					Leer carrera
@@ -275,12 +289,12 @@ Algoritmo sin_titulo
 					
 				sino
 					
-					Escribir "Ingrese datos alumnos y grupos para poder hacer esta accion"
+					Escribir "Ingrese  grupos o maestros para poder hacer esta accion"
 					
 				FinSi
 
 				
-			Caso 8:
+			Caso 7:
 							
 				si cont_maestros > 0 Entonces
 					
@@ -293,19 +307,33 @@ Algoritmo sin_titulo
 						Escribir i " <---- " maestro[i,1] 
 						
 					FinPara
+					
 					Leer maestro_grupo
 					
-					Escribir "Ingrese el grupo"
+					si (maestro_grupo > cont_maestros) o (maestro_grupo < 0 )  Entonces
+						
+						Repetir
+							
+							Leer maestro_grupo
+							
+						Hasta Que maestro_grupo > 0 y maestro_grupo <= cont_maestros
+						
+					FinSi
+					
+					maestro_grupo_text=ConvertirATexto(maestro_grupo)
+					
+					Escribir "Ingrese el nombre del grupo"
 					Leer grupo_leer
 					
-					grupo[cont_grupo,1] <- grupo_leer
-					grupo[cont_grupo,2] <- maestro_grupo
+					grupo[cont_grupo,1] <- maestro_grupo_text
+					grupo[cont_grupo,2] <- grupo_leer
+					
 										
 				SiNo
 					Escribir "Agregue un maestro"
 				FinSi
 				
-			Caso 9:
+			Caso 8:
 				
 				
 			De Otro Modo:
