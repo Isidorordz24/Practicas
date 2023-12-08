@@ -1,8 +1,5 @@
 Algoritmo sin_titulo
-	
-	// <--- definir las variables -----> 
-
-	
+		
 	// <--- definir las matrices -----> 
 	Dimension estudiante[100,5]
 	Dimension estudiante2[100,5]
@@ -24,13 +21,15 @@ Algoritmo sin_titulo
 		Escribir "7 <----> Grupos"
 		Escribir "8 <----> Salir"
 		Leer op
-		
+
+		//Estructura para las opciones del menu
+
 		Segun op Hacer
 			
 			Caso 1:
 				
 				si cont_grupo > 0 y cont_carrera > 0 Entonces
-					
+					//pedir metodo de pago
 					Escribir "Ingrese su metodo de pago"
 					
 					Escribir "1 <----> Pago normal"
@@ -38,7 +37,8 @@ Algoritmo sin_titulo
 					Leer metodoPago
 					
 					si metodoPago = 1 Entonces
-						
+
+							//ingreso por pago normal
 						contestudiantes2 <- contestudiantes2 + 1 
 						
 						Escribir "-----------Se ingreso el pago normal------------"
@@ -174,7 +174,7 @@ Algoritmo sin_titulo
 			Caso 2:
 				
 				si contestudiantes > 0 Entonces
-					
+					//registro de estudiantes
 					Escribir "Registro de estudiantes por beca : "
 					
 					Para i <- 1 Hasta contestudiantes Con Paso 1 Hacer
@@ -193,7 +193,7 @@ Algoritmo sin_titulo
 				FinSi
 				
 				si contestudiantes2 > 0 Entonces
-					
+					//pago normal
 					Escribir "Registro de estudiantes por pago normal : "
 					
 					Para i <- 1 Hasta contestudiantes2 Con Paso 1 Hacer
@@ -213,7 +213,7 @@ Algoritmo sin_titulo
 				
 				
 			Caso 3:
-				
+				//alumnos disponibles 
 				si contestudiantes2 > 0 Entonces
 					
 					Escribir "-------- Alumnos disponibles con el pago normal -----------"
